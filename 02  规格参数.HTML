@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02 规格参数</title>
+    <style>
+        body {
+            background: #FFFFFF;
+            margin: 0;
+            font-family: 'Segoe UI',Arial,'Microsoft Yahei',sans-serif;
+            font-size: 81.25%;
+        }
+        button {
+            font-family: 'Segoe UI',Arial,'Microsoft Yahei',sans-serif;
+        }
+        .flex{
+            display: flex;
+        }
+        .column{
+            flex-direction: column;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row; /* 改为水平方向 */
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; /* 添加右侧间距 */
+            height: 20px; /* 设置按钮高度 */
+            
+        }   
+
+        .radio {
+            display: none;
+        }
+
+        .label {
+            margin-left: 5px;
+        }
+
+        .radio + label::before {
+            content: '';
+            display: inline-block;
+            width: 12px; /* 调整小圆点的大小 */
+            height: 12px; /* 调整小圆点的大小 */
+            margin-right: 10px;
+            border: 5px 5px 5px 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .radio:checked + label::before {
+            background-color: rgb(190, 3, 3); /* 背景颜色变红色 */
+            content: '✔'; /* 添加✔符号 */
+            color: white; /* 设置✔符号为白色 */
+            font-family: '微软雅黑', sans-serif; /* 设置字体 */
+            font-size: 8px; /* 调整✔符号的大小 */
+            text-align: center; /* 居中 */
+            line-height: 12px; /* 垂直居中 */
+        }
+        .menu-item {
+            /*width: 140px;*/
+            height: 25px;
+            /*background-color: #edecec;*/
+            border: none;
+            background: #FFFFFF;
+
+            /*border-radius: 3px;*/
+            /*font-weight: bold;*/
+            font-size: 16px;
+        }
+        .menu-item:hover {
+            /*background-color: #cc0000; */
+            color: #cc0000;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+        th, td {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e8e3e3;
+            color: #d2cece;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            width: 150px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+            font-size: 9px;
+        }
+
+        td {
+            text-align: left;
+        }
+
+    </style>
+</head>
+<body class="flex column">
+    <!--搜索区-->
+    <div class="flex column">
+        <!--搜索模式选择：精准or模糊-->
+        <div style="height: 30px; margin-left: 110px; margin-top: 15px;" class="flex">
+            <div>
+                <button style="border: none;border-radius: 20px;" >精确</button> 
+            </div>
+            <div>
+                <button style="background-color: #FFFFFF; border: none; margin-left: 10px;" >模糊</button> 
+            </div>
+            <div style="margin-left: 900px;"> 
+                <button style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                    <img style="margin-top: 10px; width: 40px; height: 35px;"   
+                         src="C:\Users\61600\Desktop\原型图\原型03\图片合集\账户.png" 
+                         alt="登录"
+                    >
+                </button>
+            </div>
+        </div>
+        <!--logo和搜索框-->
+        <div style="height: 45px; margin-left: 70px;" class="flex">
+            <div>
+                <img style="width: 50px;height: 35px;"   
+                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\logo图.png" alt="图片描述">
+            </div>
+            <div>
+                <img style="margin-left: 15px;  width: 550px;height: 45px;"   
+                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\搜索栏样式.png" alt="图片描述">
+            </div>
+
+        </div>
+        <!--搜索条件-->
+        <div style="margin-left: 150px;" class="flex column">
+            <div style="margin-top:10px ;"><span>约&nbsp;&nbsp;240条&nbsp;&nbsp;&nbsp;结果</span></div>
+
+            <!--内容筛选条件-->
+            <div class="flex">
+                <div style="display: flex; align-items: center;">
+                    <p style="margin-right: 10px;">当前条件：</p>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <select style="width: 200px;">
+                        <option value="option1">原厂名称1</option>
+                        <option value="option2">onsemi</option>
+                        <option value="option3">Murata</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <select style="width: 200px;margin-left: 15px;">
+                        <option value="option1">对应型号</option>
+                        <option value="option2">选项B</option>
+                        <option value="option3">选项C</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button style="border: none;background-color: #FFFFFF;cursor: pointer;">
+                        <img style="margin: 10px; width: 40px;height: 20px;"
+                        src="C:\Users\61600\Desktop\原型图\原型03\图片合集\全部展开.png" alt="图片描述">
+                    </button>
+                </div>
+
+            </div>
+
+            <!--内容展示选项：规格参数/找料比价/替代型号/关联型号-->
+            <div class="flex-container">
+                <div class="button">
+                    <input type="radio" name="contentGroup" id="contentButton1" class="radio special-option" checked>
+                    <label for="contentButton1">规格参数</label>
+                </div>
+                <div class="button">
+                    <input type="radio" name="contentGroup" id="contentButton2" class="radio special-option">
+                    <label for="contentButton2">找料比价</label>
+                </div>
+                <div class="button">
+                    <input type="radio" name="contentGroup" id="contentButton3" class="radio special-option">
+                    <label for="contentButton3">替代型号</label>
+                </div>
+                <div class="button">
+                    <input type="radio" name="contentGroup" id="contentButton4" class="radio special-option">
+                    <label for="contentButton4">关联型号</label>
+                </div>
+            </div>
+
+        </div>
+           
+    </div>
+    
+    <!--数据展示区,分左右两区，左区展示数据，右区是广告推荐区-->
+    <div class="flex">
+        <!--左区-->
+        <div style="width: 70vw;" class="flex column">  <!--左区占界面70%-->
+            <div style="margin-left: 150px;margin-top: 15px;" class="flex column"><!--左区的左边距缩进150px-->
+
+                <!--(1)基本信息框-->
+                <div style="height: 60px;" class=" flex">
+                    <!--图片-->
+                    <div class="flex column">
+                        <!--型号图片-->
+                        <div style="width: 120px;">
+                            <img style=" margin: 10px; width: 70px;height: 55px;"
+                            src="C:\Users\61600\Desktop\原型图\原型03\图片合集\矢量图.png" alt="图片描述">
+                        </div>
+                        <!--PDF图标&ECAD模型图标，并排展示-->
+                        <div class="flex">
+                            <div >  
+                                <img style="width: 25px;height: 25px;margin-left: 10px;"
+                                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\datasheet.png" alt="图片描述">
+                            </div>
+                            <div >  
+                                <img style="width: 25px;height: 25px;margin-left: 10px;"
+                                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\ECAD模型图标.png" alt="图片描述">
+                            </div>
+                         </div>
+                    </div>
+                    <!--型号基本信息-->
+                    <div style=" width: 200px;margin-left: 10px;" class="flex column">
+                         <span style="font-size: 10px;">微控制器</span>
+                         <span style="font-weight: bold;  font-size: 18px;color: #cc0000"> 1N4148W-TP  </span>
+                         <span style="font-size: 12px;" >制造商：Texas Instruments</span>
+                         <p style="font-size: 10px;">描述：Rectifier Diode, 1 Element, 0.15A, 100V V(RRM), Silicon, ROHS COMPLIANT, PLASTIC PACKAGE-2</p> 
+                    </div>
+                    <!--价格和库存指标-->
+                    <div style="width:150px; margin-left: 40px;" class="flex column">
+                            <!--价格-->
+                            <div class="flex column">
+                                <div><span style="font-size: 12px;">市场均价：</span></div>
+                                <div style="height: 30px;" class="flex">
+                                    <div><span style="font-weight: bold; font-size: 16px; color: #3f3e3e;">￥69.415</span></div>
+                                    <div><img style="width: 25px;height: 25px;"
+                                        src="C:\Users\61600\Desktop\原型图\原型03\图片合集\上涨.png" alt="图片描述">
+                                    </div>
+                                </div>
+                            </div>
+                            <span>&nbsp;</span>
+                            <!--库存-->
+                            <div><span style="font-size: 12px;">市场库存：</span></div>
+                            <div style="height: 30px;" class="flex">
+                                <div><span style="font-weight: bold; font-size: 16px; color: #3f3e3e;">290,356</span></div>
+                                <div><img style="width: 25px;height: 25px;"
+                                    src="C:\Users\61600\Desktop\原型图\原型03\图片合集\下降.png" alt="图片描述">
+                                </div>
+                            </div>
+                    </div>
+                    <!--热搜指数-->
+                    <div style="width:150px; " class="flex column">
+                        <!--搜索次数-->
+                        <div class="flex column">
+                            <div><span style="font-size: 12px;">搜索次数：</span></div>
+                            <div style="height: 30px;" class="flex">
+                                <div><span style="font-weight: bold; font-size: 16px; color: #3f3e3e;">239054</span></div>
+                                <div><img style="width: 25px;height: 25px;"
+                                    src="C:\Users\61600\Desktop\原型图\原型03\图片合集\上涨.png" alt="图片描述">
+                                </div>
+                            </div>
+                        </div>
+                        <span>&nbsp;</span>
+                        <!--月搜索量-->
+                        <div><span style="font-size: 12px;">月搜索量：</span></div>
+                        <div style="height: 30px;" class="flex">
+                            <div><span style="font-weight: bold; font-size: 16px; color: #3f3e3e;">1246</span></div>
+                            <div><img style="width: 25px;height: 25px;"
+                                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\下降.png" alt="图片描述">
+                            </div>
+                        </div>
+                    </div>  
+                    <!--风险系数-->
+                    <div style="width:150px;" class="flex column">
+                        <!--生命周期-->
+                        <div class="flex column">
+                            <div><span style="font-size: 12px;">生命周期：</span></div>
+                            <div style="height: 30px;"><span style="font-weight: bold; font-size: 16px; color: #3f3e3e;">Active</span></div>
+                        </div>
+
+                        <span>&nbsp;</span>
+
+                        <!--风险等级-->
+                        <div class="flex column">
+                            <div><span style="font-size: 12px;">风险等级：</span></div>
+                            <div style="height: 30px;" class="flex">
+                                <div><span style="font-weight: bold; font-size: 16px; color: #3f3e3e;">0.53</span></div>
+                                <div>
+                                    <img style="width: 25px;height: 25px;"
+                                    src="C:\Users\61600\Desktop\原型图\原型03\图片合集\价格不变.png" alt="图片描述">
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+
+    <!--########分割线-->
+
+                <!--(2)内容展示区--> 
+                <div style="margin-top: 70px;" class="flex column">
+
+                    <!--数据区域：参数/货源/价格/替代/关联等详情-->
+                    <div style="margin-top: 20px;" class="flex column">
+                        <div >
+                            <p style="font-weight: bolder;">交易参数</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table>
+                        </div>
+                        <div >
+                            <p style="font-weight: bolder;">技术参数</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table>                           
+                        </div>
+                        <div >
+                            <p style="font-weight: bolder;">封装参数</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table> 
+                        </div>
+                        <div >
+                            <p style="font-weight: bolder;">包装参数</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table>                           
+                        </div>                  
+                    </div>
+
+                    <!--数据区域：供应商/价格趋势/采购条件-->
+                    <div style="margin-top: 20px;" class="flex column">
+                        <div >
+                            <p style="font-weight: bolder;">供应商信息</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table>
+                        </div>
+                        <div >
+                            <p style="font-weight: bolder;">价格趋势</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table>                           
+                        </div>
+                        <div >
+                            <p style="font-weight: bolder;">采购条件</p>
+                            <table>
+                                <tr>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+
+                            </table>                           
+                        </div>                  
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--右侧广告推荐-->
+
+    </div>
+</body>
+</html>

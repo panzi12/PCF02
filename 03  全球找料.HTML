@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03 全球找料</title>
+    <style>
+        body {
+            background: #FFFFFF;
+            margin: 0;
+            font-family: 'Segoe UI',Arial,'Microsoft Yahei',sans-serif;
+            font-size: 81.25%;
+        }
+        button {
+            font-family: 'Segoe UI',Arial,'Microsoft Yahei',sans-serif;
+        }
+        .flex{
+            display: flex;
+        }
+        .column{
+            flex-direction: column;
+        }
+
+        .flex-container {
+            display: flex;
+            flex-direction: row; /* 改为水平方向 */
+        }
+
+        .button {
+            display: flex;
+            align-items: center;
+            margin-right: 20px; /* 添加右侧间距 */
+            height: 20px; /* 设置按钮高度 */
+            
+        }   
+
+        .radio {
+            display: none;
+        }
+
+        .label {
+            margin-left: 5px;
+        }
+
+        .radio + label::before {
+            content: '';
+            display: inline-block;
+            width: 12px; /* 调整小圆点的大小 */
+            height: 12px; /* 调整小圆点的大小 */
+            margin-right: 10px;
+            border: 5px 5px 5px 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .radio:checked + label::before {
+            background-color: rgb(190, 3, 3); /* 背景颜色变红色 */
+            content: '✔'; /* 添加✔符号 */
+            color: white; /* 设置✔符号为白色 */
+            font-family: '微软雅黑', sans-serif; /* 设置字体 */
+            font-size: 8px; /* 调整✔符号的大小 */
+            text-align: center; /* 居中 */
+            line-height: 12px; /* 垂直居中 */
+        }
+        .menu-item {
+            /*width: 140px;*/
+            height: 25px;
+            /*background-color: #edecec;*/
+            border: none;
+            background: #FFFFFF;
+
+            /*border-radius: 3px;*/
+            /*font-weight: bold;*/
+            font-size: 16px;
+        }
+        .menu-item:hover {
+            /*background-color: #cc0000; */
+            color: #cc0000;
+            cursor: pointer;
+            font-weight: bolder;
+        }
+        th, td {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e8e3e3;
+            color: black;
+            font-size: 11px;
+            /*font-weight: bold;*/
+            text-align: center;
+            width: 150px;
+        }
+
+        tr:nth-child(even) {
+            /*background-color: #f2f2f2;*/
+            font-size: 10px;
+        }
+
+        td {
+            text-align: left;
+        }
+        .box{
+            text-align: center; 
+            border: white;  
+            color: #cc0000;
+            cursor: pointer;
+        }
+       .box5 {
+            width: 1100px; 
+            /*height: 200px;*/ 
+            overflow-x: scroll; 
+            border: 1px solid #ccc; 
+        }
+
+        .cell {
+            width: 1200px; 
+            /*height: 100%; */
+            /*background-color: #f0f0f0; */
+        }        
+
+    </style>
+</head>
+<body class="flex column">
+    <!--搜索区-->
+    <div class="flex column">
+        <!--搜索模式选择：精准or模糊-->
+        <div style="height: 30px; margin-left: 110px; margin-top: 15px;" class="flex">
+            <div>
+                <button style="border: none;border-radius: 20px;" >精确</button> 
+            </div>
+            <div>
+                <button style="background-color: #FFFFFF; border: none; margin-left: 10px;" >模糊</button> 
+            </div>
+            <div style="margin-left: 900px;"> 
+                <button style="background: none; border: none; padding: 0; margin: 0; cursor: pointer;">
+                    <img style="margin-top: 10px; width: 40px; height: 35px;"   
+                         src="C:\Users\61600\Desktop\原型图\原型03\图片合集\账户.png" 
+                         alt="登录"
+                    >
+                </button>
+            </div>
+        </div>
+        <!--logo和搜索框-->
+        <div style="height: 45px; margin-left: 70px;" class="flex">
+            <div>
+                <img style="width: 50px;height: 35px;"   
+                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\logo图.png" alt="图片描述">
+            </div>
+            <div>
+                <img style="margin-left: 15px;  width: 550px;height: 45px;"   
+                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\搜索栏样式.png" alt="图片描述">
+            </div>
+            <div>
+                <img style="margin-left: 15px;  width:60px;height: 45px;"   
+                src="C:\Users\61600\Desktop\原型图\原型03\图片合集\批量找货.png" alt="图片描述">
+            </div>
+        </div>
+        <!--搜索条件-->
+        <div style="margin-left: 150px;" class="flex column">
+            <div style="margin-top:10px ;"><span>约&nbsp;&nbsp;240条&nbsp;&nbsp;&nbsp;结果</span></div>
+
+            <!--内容筛选条件-->
+            <div class="flex">
+                <div style="display: flex; align-items: center;">
+                    <p style="margin-right: 10px;">当前条件：</p>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <select style="width: 200px;">
+                        <option value="option1">原厂名称1</option>
+                        <option value="option2">onsemi</option>
+                        <option value="option3">Murata</option>
+                    </select>
+                </div>
+
+                <div style="display: flex; align-items: center;">
+                    <select style="width: 200px;margin-left: 15px;">
+                        <option value="option1">对应型号</option>
+                        <option value="option2">选项B</option>
+                        <option value="option3">选项C</option>
+                    </select>
+                </div>
+
+                <div>
+                    <button style="border: none;background-color: #FFFFFF;cursor: pointer;">
+                        <img style="margin: 10px; width: 40px;height: 20px;"
+                        src="C:\Users\61600\Desktop\原型图\原型03\图片合集\全部展开.png" alt="图片描述">
+                    </button>
+                </div>
+
+            </div>
+
+            <!--内容展示选项：物料详情/全球找货/全球比价-->
+            <div class="flex-container">
+                <div class="button">
+                    <input type="radio" name="buttonGroup" id="button1" class="radio" >
+                    <label for="button1">规格参数</label>
+                </div>
+                <div class="button">
+                    <input type="radio" name="buttonGroup" id="button2" class="radio"checked>
+                    <label for="button2">找料比价</label>
+                </div>
+                <div class="button">
+                    <input type="radio" name="buttonGroup" id="button3" class="radio">
+                    <label for="button3">替代型号</label>
+                </div>
+                <div class="button">
+                    <input type="radio" name="buttonGroup" id="button4" class="radio">
+                    <label for="button4">关联型号</label>
+                </div>
+            </div>
+
+        </div>
+           
+    </div>
+    
+    <!--数据展示区,分左右两区，左区展示数据，右区是广告推荐区-->
+    <div class="flex">
+
+    <!--########分割线-->
+
+                <!--(2)内容展示区--> 
+                <div style="margin-left: 80px ;margin-top: 20px;">
+                    <div class="flex">
+                        <div><span>每页显示：</span></div>
+                        <div class="button">
+                            <input type="radio" name="buttonGroup1" id="button5" class="radio">
+                            <label for="button5">25条</label>
+                        </div>
+                        <div class="button">
+                            <input type="radio" name="buttonGroup1" id="button6" class="radio">
+                            <label for="button6">50条</label>
+                        </div>
+                        <div class="button">
+                            <input type="radio" name="buttonGroup1" id="button7" class="radio" checked>
+                            <label for="button7">全部（1309条）</label>
+                        </div>
+                        <div class="button">
+                            <input type="radio" name="buttonGroup2" id="button8" class="radio"checked >
+                            <label for="button8">显示原价</label>
+                        </div>
+                        <div class="button">
+                            <input type="radio" name="buttonGroup2" id="button9" class="radio">
+                            <label for="button9">一键比价</label>
+                        </div>
+                    </div>
+                    <!--数据区域：参数/货源/价格/替代/关联等详情-->
+                    <div class="box5">
+                        <table class="cell">
+                            <tr>
+                                <th>序号</th>
+                                <th>型号 ▽</th>
+                                <th>供应商 ▽</th>
+                                <th >品牌 ▽ </th>
+                                <th>市场情况</th> 
+                                <th>交易参数</th> 
+                                <th>交期</th>
+                                <th>价格</th>
+                                <th>供应商库存</th>
+                                <th>操作</th>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>1N4148W-TP</td>
+                                <td>Arrow</td>
+                                <td>
+                                    <pre>AMD</pre>
+                                    <pre>描述：IC FPGA 158 I/O 208QFP</pre>
+                                </td>
+                                <td>
+                                    <pre>热搜：⭐⭐⭐</pre>
+                                    <pre>市场均价：＄230.11↑❓</pre>
+                                    <pre>市场库存：230907 →❓</pre>
+                                    <pre>收藏次数：23</pre>
+                                </td>                                
+                                <td>
+                                    <pre>最小起订量：500</pre>
+                                    <pre>最小包装：250/卷</pre>
+                                    <pre>增量：250</pre>
+                                    <pre>批次：2209</pre>
+                                </td>
+                                <td>深圳；2天</td>
+                                <td>
+                                    <pre>1000 +       $169</pre>
+                                    <pre>500 +        $185</pre>
+                                    <pre>100 +        $198</pre>
+                                    <pre>50 +          $210</pre>
+                                    <pre>10 +          $230</pre>
+                                    <pre>1+            $257</pre>
+                                </td>
+                                <td>724个</td>
+                                <td>
+                                    <pre><button class="box">立即购买</button></pre>
+                                    <pre><button class="box">加询价单</button></pre>
+                                    <pre><button class="box">收藏</button></pre>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>1N4148W-TP</td>
+                                <td>element14</td>
+                                <td>
+                                    <pre>XILINX</pre>
+                                    <pre>描述：可编程逻辑器件(CPLD/FPGA)</pre>
+                                </td>
+                                <td>
+                                    <pre>热搜：⭐⭐⭐</pre>
+                                    <pre>市场均价：＄240 ↓❓</pre>
+                                    <pre>市场库存：19000 ↑❓</pre>
+                                    <pre>收藏次数：237</pre>
+                                </td>                                
+                                <td>
+                                    <pre>最小包装：100个</pre>
+                                    <pre>最小起订量：100个</pre>
+                                    <pre>增量：200个</pre>
+                                    <pre>批次：2209</pre>
+                                </td>
+                                <td>香港；2wks</td>
+                                <td>
+                                    <pre>5000 +        $200</pre>
+                                    <pre>1000 +        $220</pre>
+                                    <pre>500 +          $250</pre>
+                                    <pre>100 +          $280</pre>
+                                    <pre>1+            $300</pre>
+                                </td>
+                                <td>39054个</td>
+                                <td>
+                                    <pre><button class="box">立即购买</button></pre>
+                                    <pre><button class="box">加询价单</button></pre>
+                                    <pre><button class="box">收藏</button></pre>
+                                </td>
+                            </tr>                           
+                        </table>
+                    </div>
+                </div>  
+
+            </div>
+        
+
+
+    </div>
+
+</body>
+</html>

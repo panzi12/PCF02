@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页>查货源>空白</title>
+    <style>
+    body, html {
+        margin: 0;
+        font-family:  -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        background:	#FFFFFF;
+    }
+
+    .navbar {
+        overflow: hidden;
+    }
+
+    .navbar button {
+        float: left;
+        padding: 14px 16px;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+    .search-container {
+        margin-top: 10px;
+        display: flex;
+        margin-left: 40px;
+    }
+    .flex{
+        display: flex; /* 启用Flexbox布局 */
+    }
+    .column{
+        flex-direction: column;
+    }
+    .button {
+        font-size: 12px; /* 重置字体大小 */
+        cursor: pointer;
+        background-color: #FFFFFF;
+        border: none;
+        letter-spacing: normal; /* 重置字符间距 */
+        color: blue;
+    }
+
+    .button:hover {
+        color: red; /* 鼠标悬停时字体颜色变为红色 */
+    }
+    .img{
+        width: 20px;
+        height: 20px;
+    }
+    .text1{
+        font-weight: bold; 
+        font-size: 12px; 
+        color: #3f3e3e;
+    }
+    .more-button {
+        margin-left: auto; /* 将按钮推到容器的右侧 */
+    }
+    .button2{
+        background-color:#fff;
+        font-size: 12px;
+        border-radius: 4px;
+        padding:2px 5px; /* 内边距 */
+        border: 1px solid #ddd; /* 深灰色细实线边框 */
+    }
+    /* 鼠标悬停在按钮上时的样式 */
+    .button2:hover {
+        background-color: rgba(224, 224, 224, 0.5); /* 背景色加深 */
+        border-color: #000; /* 边框变黑色 */
+    }
+    </style>
+</head>
+<body class="flex column">
+    <!--导航栏：查参数、查货源、比价、登录、收藏-->
+    <div>
+        <nav class="navbar">
+            <button style="color: #999;" class="navbar button">查参数</button> <!-- 默认添加 active 类 -->
+            <button style="color: black;" class="navbar button" >查货源</button>
+            <button style="color: #999;" class="navbar button">比价</button>
+            <button style="margin-left: 900px;">登录</button>
+            <button >收藏</button>
+        </nav>
+    </div>
+    <!--导航栏部分结束-->
+
+    <!--搜索框：logo+搜索输入框+搜索按钮-->
+    <div>
+        <div class="search-container">
+            <div>
+              <img style="width: 40px;height: 30px;"
+              src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/logo%E5%9B%BE.png" >
+            </div>
+            <div id="searchContainer" style="width: 500px; height: 30px; border: 1px solid #cccccc; border-radius: 20px;" class="flex">
+              <form id="searchForm" action='C:/Users/61600/Desktop/原型图/原型03/1.首页/02  规格参数.HTML' method="GET" style="display: flex; align-items: center; width: 100%;">
+                  <input type="text" id="searchInput" name="q" placeholder="请输入型号..." style="flex: 1; border: none; outline: none; padding: 0 10px; border-radius: 10px 0 0 10px;">
+                  <button type="button" onclick="submitForm()" style="width: 60px; height: 30px; border: none; background: transparent;">
+                      <img style="width: 100%; height: 100%; border-radius: 0 10px 10px 0;" src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E6%90%9C%E7%B4%A2%E7%AC%A6%E5%8F%B7.png" alt="搜索">
+                  </button>
+              </form>
+          </div>
+        </div> 
+    </div>
+    <!--搜索框部分结束-->
+
+
+    <!--正文区：左区75%，右区25%-->
+    <div class="flex">
+        <!--左区75%-->
+        <div style="width: 75%" >
+
+
+
+
+
+
+ 
+
+
+    
+   
+
+
+    <Script>
+        //筛选框的展开和收起
+        // 获取“收起筛选”按钮和筛选框内容的DOM元素
+        var toggleButton = document.getElementById('toggleFilter');
+        var filterContent = document.getElementById('filterContent');
+
+        // 为“收起筛选”按钮添加点击事件监听器
+        toggleButton.addEventListener('click', function() {
+        // 切换筛选框内容的显示状态
+        var isHidden = filterContent.style.display === 'none';
+        filterContent.style.display = isHidden ? 'block' : 'none';
+        
+        // 更新按钮的文本
+        toggleButton.textContent = isHidden ? '收起筛选' : '展开筛选';
+        });
+    </Script>
+</body>
+</html>

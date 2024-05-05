@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页>查参数</title>
+    <style>
+    body, html {
+        margin: 0;
+        font-family:  -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+        background:	#FFFFFF;
+    }
+
+    .navbar {
+        overflow: hidden;
+    }
+
+    .navbar button {
+        float: left;
+        padding: 14px 16px;
+        border: none;
+        outline: none;
+        background-color: inherit;
+        font-size: 12px;
+        cursor: pointer;
+    }
+    /* 添加一个新的类，用于表示选中的按钮 */
+    .navbar .active {
+        color: black; /* 选中按钮的文字颜色为黑色 */
+    }
+
+    /* 更新 .navbar button 的样式，未选中时的文字颜色 */
+    .navbar button {
+        color: #999; /* 默认文字颜色为 #999 */
+    }
+
+    .search-container {
+        margin-top: 10px;
+        display: flex;
+        margin-left: 40px;
+    }
+    .flex{
+        display: flex; /* 启用Flexbox布局 */
+    }
+    .column{
+        flex-direction: column;
+    }
+    .button {
+        font-size: 12px; /* 重置字体大小 */
+        cursor: pointer;
+        background-color: #FFFFFF;
+        border: none;
+        letter-spacing: normal; /* 重置字符间距 */
+        color: blue;
+    }
+
+    .button:hover {
+        color: red; /* 鼠标悬停时字体颜色变为红色 */
+    }
+    .img{
+        width: 20px;
+        height: 20px;
+    }
+    .text1{
+        font-weight: bold; 
+        font-size: 12px; 
+        color: #3f3e3e;
+    }
+    .more-button {
+        margin-left: auto; /* 将按钮推到容器的右侧 */
+    }
+    .button2{
+        background-color:#fff;
+        font-size: 12px;
+        border-radius: 4px;
+        padding:2px 5px; /* 内边距 */
+        border: 1px solid #ddd; /* 深灰色细实线边框 */
+    }
+    /* 鼠标悬停在按钮上时的样式 */
+    .button2:hover {
+        background-color: rgba(224, 224, 224, 0.5); /* 背景色加深 */
+        border-color: #000; /* 边框变黑色 */
+    }
+    .input-con{
+        flex: 1; border: none;
+        outline: none; 
+        padding: 0 10px; 
+        border-radius: 10px 0 0 10px;
+    }
+    .search-but{
+        width: 60px;
+        height: 30px; 
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+    .serch-con{
+        width: 500px;
+        height: 30px;
+        border: 1px solid #cccccc;
+        border-radius: 20px;
+    }
+    .box-sty{
+        display: flex;
+        align-items: center;
+        width: 100%;
+    }
+    </style>
+</head>
+<body class="flex column">
+    <!--导航栏：查参数、查货源、比价、登录、收藏-->
+    <div>
+        <nav class="navbar">
+            <button id="Checkparameter" class="active">查参数</button> <!-- 默认添加 active 类 -->
+            <button id="Findchip"  class="navbar button" >查货源</button>
+            <button id="Compareprices" class="navbar button">比价</button>
+            <button style="margin-left: 900px;">登录</button>
+            <button >收藏</button>
+        </nav>
+    </div>
+    <!--导航栏部分结束-->
+
+    <!--搜索框：logo+搜索输入框+搜索按钮-->
+    <div>
+        <div class="search-container">
+            <div>
+              <img style="width: 40px;height: 30px;"
+              src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/logo%E5%9B%BE.png" >
+            </div>
+            <div id="searchContainer" style="width: 500px; height: 30px; border: 1px solid #cccccc; border-radius: 20px;" class="flex">
+              <form id="searchForm" class="box-sty">
+                  <input type="text" id="searchInput" name="q" placeholder="1N4148W-TP" class="input-con">
+                  <button type="button" onclick="submitForm()" class="search-but">
+                      <img style="width: 100%; height: 100%; border-radius: 0 10px 10px 0;" src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E6%90%9C%E7%B4%A2%E7%AC%A6%E5%8F%B7.png" alt="搜索">
+                  </button>
+              </form>
+          </div>
+
+        </div> 
+    </div>
+    <!--搜索框部分结束-->
+
+
+    <!--正文区：左区75%，右区25%-->
+    <div class="flex">
+        <!--左区75%-->
+        <div style="width: 75%" >
+
+        <!--搜索结果筛选区域：搜索结果、筛选条件-->
+        <div style="margin-left: 100px;width: 450px;" class="flex column">
+            <div><span style="font-size: 12px;">约&nbsp;&nbsp;240条&nbsp;&nbsp;&nbsp;结果</span></div>
+            <!--筛选条件-->
+            <div class="flex column">
+                <div class="flex">
+                    <h6>首页>查参数>1N4148W-TP</h6>
+                    <button id="toggleFilter" style="margin-left: 220px;" class="button">收起筛选&and;</button>
+                </div>
+
+                <!-- 初始显示 -->
+                <div id="filterContent" class="flex column" style="display: block;"> 
+                    <div class="flex column">
+                        <div style="border: 1px dashed #cccccc; margin-left: 20px;" class="flex">
+                            <span style="font-size: 12px;">品牌:</span>
+                            <button class="button">Onsemi</button>
+                            <button class="button">Microchip</button>
+                            <button class="button more-button">更多 +</button>
+                        </div>
+
+                        <div>
+                            <div style="border: 1px dashed #cccccc; margin-left: 20px;margin-top: 10px;" class="flex">
+                                <span style="font-size: 12px;">型号:</span>
+                                <button style="color: red;" class="button">1N4148W-TP</button>
+                                <button class="button">  
+                                    <span  style="color: red;">1N4148W-TP</span>
+                                    <span  style="color: blue;">SW</span>
+                                </button>
+                                <button class="button"> 
+                                    <span style="color: blue;">TMS</span>
+                                    <span style="color: red;">1N4148W-TP</span>
+                                    <span  style="color: blue;">TR</span>
+                                </button>
+                                <button class="button more-button">更多 +</button>
+                            </div>
+                            <div style=" margin-left: 20px;margin-top: 10px;">
+                                <button class="button2">参数对比 +</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--筛选条件区域结束-->
+        </div>
+        <!--搜索结果筛选区域结束-->
+
+        <!--基本信息区：图片和基本指标-->
+        <div style="height: 60px;margin-left: 100px;margin-top: 30px;" class=" flex">
+            <!--图片-->
+            <div class="flex column">
+            <!--型号图片-->
+                <div style="width: 120px;">
+                    <img style=" margin: 10px; width: 70px;height: 55px;"
+                    src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E7%9F%A2%E9%87%8F%E5%9B%BE.png" alt="图片描述">
+                </div>
+            <!--PDF图标&ECAD模型图标，并排展示-->
+                <div class="flex">
+                    <div >  
+                        <img style="width: 25px;height: 25px;margin-left: 10px;"
+                        src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/datasheet.png" alt="图片描述">
+                    </div>
+                    <div >  
+                        <img style="width: 25px;height: 25px;margin-left: 10px;"
+                        src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/ECAD%E6%A8%A1%E5%9E%8B%E5%9B%BE%E6%A0%87.png" alt="图片描述">
+                    </div>
+                </div>
+            </div>
+            <!--型号基本信息-->
+            <div style=" width: 200px;margin-left: 10px;" class="flex column">
+                <span style="font-size: 10px;">微控制器</span>
+                <span style="font-weight: bold;  font-size: 18px;color: #cc0000"> 1N4148W-TP  </span>
+                <span style="font-size: 12px;" >制造商：Texas Instruments</span>
+                <p style="font-size: 10px;">描述：Rectifier Diode, 1 Element, 0.15A, 100V V(RRM), Silicon, ROHS COMPLIANT, PLASTIC PACKAGE-2</p> 
+            </div>
+            <!--价格和库存指标-->
+            <div style="width:100px; margin-left: 20px;" class="flex column">
+                <!--价格-->
+                <div class="flex column">
+                    <div><span style="font-size: 12px;">市场均价：</span></div>
+                    <div style="height: 30px;" class="flex">
+                        <div><span class="text1">￥69.415</span></div>
+                        <div><img class="img"
+                            src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E4%B8%8A%E6%B6%A8.png" alt="图片描述">
+                        </div>
+                    </div>
+                </div>
+                <span>&nbsp;</span>
+                <!--库存-->
+                <div><span style="font-size: 12px;">市场库存：</span></div>
+                    <div style="height: 30px;" class="flex">
+                        <div><span span class="text1">290,356</span></div>
+                        <div><img class="img"
+                            src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E4%B8%8B%E9%99%8D.png" alt="图片描述">
+                        </div>
+                    </div>
+            </div>
+                <!--热搜指数-->
+                <div style="width:100px; " class="flex column">
+                    <!--搜索次数-->
+                    <div class="flex column">
+                        <div><span style="font-size: 12px;">搜索次数：</span></div>
+                        <div style="height: 30px;" class="flex">
+                            <div><span span class="text1">239054</span></div>
+                            <div><img class="img"
+                                src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E4%B8%8A%E6%B6%A8.png" alt="图片描述">
+                            </div>
+                        </div>
+                    </div>
+                    <span>&nbsp;</span>
+                    <!--月搜索量-->
+                    <div><span style="font-size: 12px;">月搜索量：</span></div>
+                        <div style="height: 30px;" class="flex">
+                            <div><span span class="text1">1246</span></div>
+                            <div><img class="img"
+                                src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E4%B8%8B%E9%99%8D.png" alt="图片描述">
+                            </div>
+                        </div>
+                </div>  
+                <!--风险系数-->
+                <div style="width:100px;" class="flex column">
+                    <!--生命周期-->
+                    <div class="flex column">
+                        <div><span style="font-size: 12px;">生命周期：</span></div>
+                        <div style="height: 30px;"><span span class="text1">Active</span></div>
+                    </div>
+        
+                <span>&nbsp;</span>
+        
+                <!--风险等级-->
+                <div class="flex column">
+                    <div><span style="font-size: 12px;">风险等级：</span></div>
+                    <div style="height: 30px;" class="flex">
+                    <div><span span class="text1">0.53</span></div>
+                        <div><img class="img"
+                            src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E4%B8%8B%E9%99%8D.png" alt="图片描述">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div> 
+        <!--基本信息区结束-->
+
+        <!--正文部分-->
+        <div style="margin-top: 80px;margin-left: 100px;" class="flex column">
+                <!--规格参数列表内容-->
+                <div class="flex column">
+                    <img style="height: 600px;width: 750px;" src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B01.png" >
+                    <img style="height: 450px;width: 750px;" src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/%E8%A7%84%E6%A0%BC%E5%8F%82%E6%95%B02.png" >
+                </div>
+                <!--规格参数列表部分结束-->
+
+
+        </div>
+        <!--正文部分结束-->
+    </div>
+
+        <!--右区25%-->
+        <div style="width: 25%;margin-top: 50px;">
+      <div>
+        <img style="height: 400px;width: 300px;"
+        src="https://raw.githubusercontent.com/panzi12/pub-pan1/main/image.png" >
+      </div>
+        </div>
+    
+    </div>
+
+    <script>
+        // 假设我们有三个按钮，分别为参数、货源和比价
+        var buttons = document.querySelectorAll('.navbar button');
+      
+        // 为按钮添加点击事件监听器
+        buttons.forEach(function(button) {
+          button.addEventListener('click', function() {
+            // 移除所有按钮的 'active' 类
+            buttons.forEach(function(btn) {
+              btn.classList.remove('active');
+            });
+      
+            // 为当前点击的按钮添加 'active' 类
+            this.classList.add('active');
+      
+            // 此处可以根据需要添加其他业务逻辑
+          });
+        });
+    </script>
+    <Script>
+        //筛选框的展开和收起
+        // 获取“收起筛选”按钮和筛选框内容的DOM元素
+        var toggleButton = document.getElementById('toggleFilter');
+        var filterContent = document.getElementById('filterContent');
+
+        // 为“收起筛选”按钮添加点击事件监听器
+        toggleButton.addEventListener('click', function() {
+        // 切换筛选框内容的显示状态
+        var isHidden = filterContent.style.display === 'none';
+        filterContent.style.display = isHidden ? 'block' : 'none';
+        
+        // 更新按钮的文本
+        toggleButton.textContent = isHidden ? '收起筛选' : '展开筛选';
+        });
+    </Script>
+
+    <script>
+    // 等待DOM内容完全加载
+    document.addEventListener('DOMContentLoaded', function() {
+        // 获取所有按钮和搜索表单
+        var checkParameterBtn = document.getElementById('Checkparameter');
+        var findChipBtn = document.getElementById('Findchip');
+        var comparePricesBtn = document.getElementById('Compareprices');
+        var searchInput = document.getElementById('searchInput');
+        var searchBtn = document.querySelector('button[type="button"]'); // 搜索按钮
+
+        // 为搜索按钮添加点击事件
+        searchBtn.addEventListener('click', function() {
+        var action = document.getElementById('searchForm').getAttribute('action');
+        var searchValue = searchInput.value.trim();
+
+        // 根据表单的action属性和搜索框的值来决定是否打开链接
+        if (action.includes("查参数") && searchValue === "STM32F103C8T6") {
+            window.open(action, '_blank');
+        } else if (action.includes("查货源") && searchValue === "1N4148W-TP") {
+            window.open(action, '_blank');
+        } else if (action.includes("比价") && searchValue === "1N4148W-TP") {
+            window.open(action, '_blank');
+        } else {
+        // 如果输入的内容不匹配，则打开一个空白HTML文件
+            var blankHtmlUrl = 'about:blank'; // 或者一个指向空白页面的URL
+            window.open(blankHtmlUrl, '_blank');
+        }
+        });
+
+        // 为每个按钮添加点击事件，仅用于改变表单的action属性
+        checkParameterBtn.addEventListener('click', function() {
+        document.getElementById('searchForm').setAttribute('action', 'C:/Users/61600/Desktop/首页/02首页-查参数-STM32F103C8T6.HTML');
+        });
+
+        findChipBtn.addEventListener('click', function() {
+        document.getElementById('searchForm').setAttribute('action', 'C:/Users/61600/Desktop/首页/03首页-查货源 -1N4148W-TP.HTML');
+        });
+
+        comparePricesBtn.addEventListener('click', function() {
+        document.getElementById('searchForm').setAttribute('action', 'C:/Users/61600/Desktop/首页/04首页-比价 -1N4148W-T..HTML');
+        });
+    });
+</script>
+
+</body>
+</html>

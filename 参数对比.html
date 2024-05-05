@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-1 参数对比</title>
+    <link rel="stylesheet" href="C:\Users\61600\Desktop\原型图\原型03\样式合集\导航栏搜索框样式.css">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            /*font-family: Georgia, serif;*/
+            font-size: 100%;
+        }
+        .flex{
+            display: flex;
+        }
+        .column{
+            flex-direction: column;
+        }
+        .font-size{
+            font-family: 1.2rem
+        }
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 50%;
+            font-size: 14px;
+            margin-left: 30px;
+        }
+
+        th, td {
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #e8e3e3;
+            color: #636161;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            /*background-color: #f2f2f2;*/
+            font-size: 12px;
+        }
+
+        td {
+            text-align: left;
+        }
+        .selection {
+            width: 15px;
+            height: 15px;
+            border: 1px solid #cc0000;
+            cursor: pointer;
+            text-align: center;
+        }
+        .selected::after {
+        content: '✔';
+        }
+        .box1{
+            margin-left: 100px;
+            width: 100px;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .box2{
+            margin-left: 20px;
+            width: 100px;
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        .box1,.box2:hover{
+            color: #cc0000;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex column">
+    <!--导航栏-->
+    <div style="height: 50px;" class="flex border">
+        <!--logo-->
+        <div>
+            <img style="margin-left:30px ;width: 100px;height: 50px;"   
+            src="C:\Users\61600\Desktop\原型图\原型03\图片合集\logo图.png" alt="图片描述">
+        </div>
+        <!--搜索型号-->
+        <div class="box1">物料详情</div>
+        <!--全球找货-->
+        <div class="box2">全球找货</div>
+        <!--全球比价-->
+        <div class="box2">全球比价</div>
+        <!--库存风险评估-->
+        <div class="box2">库存风险</div>
+        <!--批量询价服务-->
+        <div class="box2">批量询价</div>
+        <div style="margin-left: 300px;" class="box2">登录/注册</div>
+    </div>
+    <!--搜索框-->
+    <div style="margin-top: 20px; text-align: center;">
+        <!--菜单选项-->
+            <div style="height: 7vh;margin-left: 40px;" class="flex">
+                <button style="margin-right: 10px;background-color: #cc0000; color: white;" class="menu-item">添加型号</button>
+                <button style="margin-right: 10px;" class="menu-item">选择对比参数</button>
+                <button style="margin-right: 10px; " class="menu-item">导出结果</button>
+            </div>
+        <!--型号列表-->
+            <table>
+                <tr>
+                    <th style="width: 60px;">&nbsp;</th>
+                    <th>APT50GN120L2DQ2G</th>
+                    <th>APT100GN120B2G</th>
+                    <th>APT100GN120J</th>
+                </tr>
+                <tr>
+                    <td>图片</td>
+                    <td><div><img style="height: 60px;width: 60px;"
+                          src="C:\Users\61600\Desktop\原型图\原型03\图片合集\APT100GN120B2G1.png" alt="图片描述"></div></td>
+                    <td><div><img style="height: 60px;width: 60px;"
+                        src="C:\Users\61600\Desktop\原型图\原型03\图片合集\APT100GN120J.png" alt="图片描述"></div></td>
+                    <td><div></div><img style="height: 60px;width: 60px;"
+                        src="C:\Users\61600\Desktop\原型图\原型03\图片合集\APT100GN120J.png" alt="图片描述"></div></td>
+
+                </tr>
+                <tr>
+                    <td>品牌</td>
+                    <td>Microchip</td>
+                    <td>Microchip</td>
+                    <td>Microchip</td>
+
+                </tr>
+                <tr>
+                    <td>描述</td>
+                    <td>IGBT Fieldstop Low Frequency Single 1200 V 100 A TO-247 MAX</td>
+                    <td>IGBT Fieldstop Low Frequency Single 1200 V 100 A SOT-227</td>
+                    <td>IGBT Fieldstop Low Frequency Combi 1200 V 100 A SOT-227</td>
+
+                </tr>
+                <tr>
+                    <td>数据手册</td>
+                    <td><div><img style="height: 20px;width: 20px;"
+                        src="C:\Users\61600\Desktop\原型图\原型03\图片合集\datasheet.png" alt="图片描述"></div></td>
+                  <td><div><img style="height: 20px;width: 20px;"
+                      src="C:\Users\61600\Desktop\原型图\原型03\图片合集\datasheet.png" alt="图片描述"></div></td>
+                  <td><div></div><img style="height: 20px;width: 20px;"
+                      src="C:\Users\61600\Desktop\原型图\原型03\图片合集\datasheet.png" alt="图片描述"></div></td>
+
+                </tr>
+                <tr>
+                    <td>交易参数</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>技术参数</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>封装参数</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>合规参数</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>其他</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+            </table>
+
+       </div>
+    </div>
+</body>
+</html>

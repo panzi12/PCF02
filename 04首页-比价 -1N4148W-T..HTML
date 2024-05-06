@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>首页>比价</title>
+    <title>首页>库存&价格>比价</title>
     <style>
     body, html {
         margin: 0;
@@ -123,19 +123,19 @@
 </head>
 <body class="flex column">
     <!--导航栏：查参数、查货源、比价、登录、收藏-->
-    <div>
+    <!--<div>
         <nav class="navbar">
             <button style="color: #999;" class="navbar button">查参数</button> <!-- 默认添加 active 类 -->
-            <button style="color: #999;" class="navbar button" >查货源</button>
+            <!--<button style="color: #999;" class="navbar button" >查货源</button>
             <button style="color: black;" class="navbar button">比价</button>
             <button style="margin-left: 900px;">登录</button>
             <button >收藏</button>
-        </nav>
-    </div>
+        </nav>-->
+    <!--</div>-->
     <!--导航栏部分结束-->
 
     <!--搜索框：logo+搜索输入框+搜索按钮-->
-    <div>
+    <!--<div>
         <div class="search-container">
             <div>
               <img style="width: 40px;height: 30px;"
@@ -150,24 +150,24 @@
               </form>
           </div>
         </div> 
-    </div>
+    </div>-->
     <!--搜索框部分结束-->
 
 
     <!--正文区：左区75%，右区25%-->
-    <div class="flex column">
+    <!--<div class="flex column">
         <!--搜索结果筛选区域：搜索结果、筛选条件-->
-        <div style="margin-left: 100px;width: 450px;" class="flex column">
+        <!--<div style="margin-left: 100px;width: 450px;" class="flex column">
             <div><span style="font-size: 12px;">约&nbsp;&nbsp;13条&nbsp;&nbsp;&nbsp;结果</span></div>
             <!--筛选条件-->
-            <div class="flex column">
+            <!--<div class="flex column">
                 <div class="flex">
                     <h6>首页>比价>1N4148W-TP</h6>
                     <button id="toggleFilter" style="margin-left: 220px;" class="button">收起筛选&and;</button>
                 </div>
 
                 <!-- 初始显示 -->
-                <div id="filterContent" class="flex column" style="display: block;"> 
+                <!--<div id="filterContent" class="flex column" style="display: block;"> 
                     <div class="flex column">
                         <div style="border: 1px dashed #cccccc; margin-left: 20px;" class="flex">
                             <span style="font-size: 12px;">品牌:</span>
@@ -197,13 +197,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>-->
             <!--筛选条件区域结束-->
-        </div>
+        <!--</div>-->
         <!--搜索结果筛选区域结束-->
 
         <!--正文部分-->
-        <div style="margin-top: 20px;margin-left: 100px;" class="flex column">
+        <div style="margin-top: 20px;margin-left: 20px;" class="flex column">
+            <h3>价格比较</h3>
                 <!--比价的列表内容-->
                 <div>
                     <!--表头：内容展示设置--> 
@@ -226,7 +227,7 @@
                     </div>
   
                     <!--比价内容显示-->
-                    <div style="width: 1100px;"  class="box5">
+                    <div style="width: 1200px;"  class="box5">
                         <table class="table">
                             <tr class="tr">
                                 <th rowspan="2" style="width: 35px;">序号</th>
@@ -334,21 +335,22 @@
     </div>
 
 
-    <Script>
+     <!--<Script>
         //筛选框的展开和收起
         // 获取“收起筛选”按钮和筛选框内容的DOM元素
-        var toggleButton = document.getElementById('toggleFilter');
-        var filterContent = document.getElementById('filterContent');
+        //var toggleButton = document.getElementById('toggleFilter');
+        //var filterContent = document.getElementById('filterContent');
 
         // 为“收起筛选”按钮添加点击事件监听器
-        toggleButton.addEventListener('click', function() {
+        //toggleButton.addEventListener('click', function() {
         // 切换筛选框内容的显示状态
-        var isHidden = filterContent.style.display === 'none';
-        filterContent.style.display = isHidden ? 'block' : 'none';
+        //var isHidden = filterContent.style.display === 'none';
+        //filterContent.style.display = isHidden ? 'block' : 'none';
         
         // 更新按钮的文本
-        toggleButton.textContent = isHidden ? '收起筛选' : '展开筛选';
-        });
-    </Script>
+        //toggleButton.textContent = isHidden ? '收起筛选' : '展开筛选';
+       // });
+    //</Script>-->
 </body>
 </html>
+
